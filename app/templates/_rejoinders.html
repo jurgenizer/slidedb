@@ -1,0 +1,39 @@
+<ul class="answers">
+ {% for rejoinder in answer.rejoinders %}
+
+
+
+    <li class="answer" style="background-color: #bfe6f2;">
+        
+         <div class="answer-thumbnail">
+            <a href="{{ url_for('.user', username=rejoinder.author.username) }}">
+                <img class="img-rounded profile-thumbnail" src="{{ rejoinder.author.gravatar(size=40) }}">
+            </a>
+         </div>
+ 
+         <div class="answer-content">
+         <div class="answer-date">{{ moment(rejoinder.timestamp).fromNow() }}</div>
+         <div class="answer-author"><a href="{{ url_for('.user', username=rejoinder.author.username) }}">Professor: {{ rejoinder.author.username }}</a></div>
+         
+         <!--get the reply to the answer, the rejoinder-->
+         <div class="answer-body">
+    
+                        {% if rejoinder.body_html %}
+                            {{ rejoinder.body_html | safe }}
+                        {% else %}
+                            {{ rejoinder.body }}
+                        {% endif %}
+      
+            </div>   
+            
+             {% if moderate %}
+                <br>
+        <!--wtf-->
+                <a class="btn btn-danger btn-xs" href="{{ url_for('.moderate_deleter', id=rejoinder.id, page=page) }}">Delete</a>
+              {% endif %}
+
+        </div>
+    </li>
+ {% endfor %}
+  
+</ul>

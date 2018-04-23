@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "_macros.html" as macros %}
+
+{% block title %}UCT PathSlides - Moderate Answers (Diagnoses){% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Answer Moderation</h1>
+</div>
+
+{% set moderate = True %}
+{% include '_answers.html' %}
+
+{% if pagination %}
+<div class="pagination">
+    {{ macros.pagination_widget(pagination, '.moderate') }}
+</div>
+{% endif %}
+{% endblock %}

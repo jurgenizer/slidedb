@@ -1,0 +1,7 @@
+Dear Prof,
+
+Herewith my diagnosis for case {{case.case_number}}
+{{form.body.data}}
+Sincerely,
+{{ user.username }}
+Note: replies to this email address are not monitored.

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}UCT PathSlides - Reply to diagnosis{% endblock %}
+
+{% block page_content %}
+
+<div class="page-header">
+    <h1>Reply to diagnosis</h1>
+</div>
+<div>
+{% include '_answers_light.html' %}
+
+    {{ wtf.quick_form(form) }}
+</div>
+
+
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+{{ pagedown.include_pagedown() }}
+{% endblock %}

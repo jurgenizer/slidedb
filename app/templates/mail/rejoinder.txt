@@ -1,0 +1,7 @@
+Dear Student,
+
+Herewith a response to your diagnosis for case {{answer.case.case_number}}
+{{form.body.data}}
+Sincerely,
+{{ user.username }}
+Note: replies to this email address are not monitored.

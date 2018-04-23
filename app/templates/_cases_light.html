@@ -1,0 +1,138 @@
+<ul class="cases">
+    {% for case in cases %}
+
+<!-- Mobile -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+<!-- leaflet -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha384-odo87pn1N9OSsaqUCAOYH8ICyVxDZ4wtbGpSYO1oyg6LxyOjDuTeXTrVLuxUtFzv" crossorigin="anonymous">
+<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha384-JguaQYjdUVs0XHRhkpHTNjd6j8IjEzgj5+1xeGYHCXQEaufKsYdtn9fgHVeVTLJu" crossorigin="anonymous"></script>
+
+<!-- leaflet minimap -->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='minimap/Control.MiniMap.min.css') }}">
+<script type="text/javascript" src="{{ url_for('static', filename='minimap/Control.MiniMap.min.js') }}"></script>
+  
+<!-- leaflet fullscreen -->
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
+
+    
+    
+    
+    <li class="case">
+        <div class="case-thumbnail">
+            <a href="{{ url_for('.user', username=case.author.username) }}">
+                <img class="img-rounded profile-thumbnail" src="{{ case.author.gravatar(size=40) }}">
+            </a>
+        </div> 
+        <div class="case-content">
+            <div class="case-date">{{ moment(case.timestamp).fromNow() }}</div>
+            <!--added by me so each case (case) has a title)-->
+            <div class="case-title">Case {{ case.case_number }}</div>
+            <div class="case-author"><a href="{{ url_for('.user', username=case.author.username) }}">Author: {{ case.author.username }}</a></div>
+            <div class="case-body">
+                {% if case.body_html %}
+                    {{ case.body_html | safe }}
+                {% else %}
+                    {{ case.body }}
+                {% endif %}
+            </div>
+   
+            <!--aded to display leaflet slide -->
+            
+            <div id="map" style="width: 100%; height: 400px;"></div>
+            
+            <script type="text/javascript">
+            //Adapted from NYU School of Medicine Virtual Microscopy, thank you!
+
+            //These functions are for http://leafletjs.com/ 
+
+            //Globals
+           
+         
+            //global map object
+            var map;
+            
+            //Minimap object
+            var minimap;
+            
+         
+            //Global Events
+            window.onresize = handleResize;
+            window.onload = init;
+
+
+            //window redraw resize
+            function handleResize() {
+                //document.getElementById('map').style.height = (height = $(window).height() - $("#map").position().top) + 'px'; // divide by 1.2 below
+                document.getElementById('map').style.height = (height = $(window).height()/1.2 - $("#map").position().top) + 'px';
+            }
+
+            //Initialize the Leaflet Map Canvas
+            function init() {
+            handleResize();
+
+            //Load map and set variables
+            map = L.map('map',{
+            fullscreenControl: true,
+            worldCopyJump:true,
+            maxBoundsViscosity: 1.0,
+            preferCanvas: true
+            }).setView([0,0], parseInt(3));
+
+    
+            var slide_url_format = "../static/{{case.slide_path}}/{z}/{y}/{x}.jpg"
+
+            //load the slide layer and add the attribution text
+            L.tileLayer(slide_url_format, {
+            attribution: 'Slide images property and copyright UCT',
+            minZoom:2,
+            maxZoom:10
+            }).addTo(map);
+            
+            //leaflet MiniMap plugin
+            var map2 = new L.TileLayer(slide_url_format, {minZoom: 0, maxZoom: 10, attribution: '' });
+            miniMap = new L.Control.MiniMap(map2, { toggleDisplay: true, position: 'topright'}).addTo(map);
+
+            }  //end of init function            
+            
+            </script>  
+            
+                        
+
+            
+            <div class="case-footer">
+                {% if current_user == case.author %}
+                <a href="{{ url_for('.edit', id=case.id) }}">
+                    <!--<span class="label label-primary">Edit</span>-->
+                    <span class="btn btn-warning">Edit</span>
+                </a>
+                <a href="{{ url_for('.delete', id=case.id) }}">             
+                <!--<span class="label label-primary">Edit</span>-->
+                    <span class="btn btn-danger">Delete</span>
+                </a>
+                {% elif current_user.is_administrator() %}
+                <a href="{{ url_for('.edit', id=case.id) }}">
+                    <!--<span class="label label-danger">Edit [Admin]</span>-->
+                    <span class="btn btn-warning">Edit [Admin]</span>
+                </a>
+                <a href="{{ url_for('.delete', id=case.id) }}">         
+                <!--<span class="label label-danger">Edit [Admin]</span>-->
+                <span class="btn btn-danger">Delete [Admin]</span>
+                </a>
+                {% endif %}
+                <!--Hide this for now
+                <a href="{{ url_for('.case', id=case.id) }}">
+                    <span class="btn btn-info">Permalink</span>
+                </a>-->
+                
+
+                
+               <a href="{{ url_for('main.index') }}">
+                    <span class="btn btn-success">Back to case index</span>
+                </a>
+             </div>
+        </div>
+    </li>
+    {% endfor %}
+</ul>

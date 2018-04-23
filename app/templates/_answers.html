@@ -1,0 +1,122 @@
+<ul class="answers">
+
+    {% for answer in answers %}
+    
+        
+    {% if answer.author.is_administrator() or answer.author.is_moderator()%}   
+    <!-- do this if answer is by admin or moderator-->
+    
+    
+    <li class="answer" style="background-color: #bfe6f2;">
+ 
+        <div class="answer-thumbnail">
+            <a href="{{ url_for('.user', username=answer.author.username) }}">
+                <img class="img-rounded profile-thumbnail" src="{{ answer.author.gravatar(size=40) }}">
+            </a>
+        </div>
+          <div class="answer-content">
+            <div class="answer-date">{{ moment(answer.timestamp).fromNow() }}</div>
+            <div class="case-title">Case {{ answer.case.case_number }}</div>
+            <div class="answer-author"><a href="{{ url_for('.user', username=answer.author.username) }}">Professor: {{ answer.author.username }}</a></div>
+          <div class="case-title">Author{{ answer.author.id }}</div>
+           <div class="answer-body">
+                {% if answer.disabled %}
+                <p><i>This diagnosis will not be displayed until it is marked / approved.</i></p>
+                {% endif %}
+                {% if moderate or not answer.disabled %}
+                    {% if answer.body_html %}
+                        {{ answer.body_html | safe }}
+                    {% else %}
+                        {{ answer.body }}
+                                
+                    {% endif %}
+  
+                    
+                {% endif %}
+            </div>   
+            
+            
+
+            
+            {% if moderate %}
+                <br>
+                {% if answer.disabled %}
+                <a class="btn btn-default btn-xs" href="{{ url_for('.moderate_enable', id=answer.id, page=page) }}">Enable</a>
+                {% else %}
+                <a class="btn btn-warning btn-xs" href="{{ url_for('.moderate_disable', id=answer.id, page=page) }}">Disable</a>
+                {% endif %}
+                <a class="btn btn-danger btn-xs" href="{{ url_for('.moderate_delete', id=answer.id, page=page) }}">Delete</a>
+            {% endif %}
+        </div>
+    </li>
+    
+    
+    {% else %}
+    <!-- do this if ordinary user-->
+ 
+
+    <li class="answer">
+ 
+        <div class="answer-thumbnail">
+            <a href="{{ url_for('.user', username=answer.author.username) }}">
+                <img class="img-rounded profile-thumbnail" src="{{ answer.author.gravatar(size=40) }}">
+            </a>
+        </div>
+          <div class="answer-content">
+            <div class="answer-date">{{ moment(answer.timestamp).fromNow() }}</div>
+            <div class="case-title">Case {{ answer.case.case_number }}</div>
+            <div class="answer-author"><a href="{{ url_for('.user', username=answer.author.username) }}">Student: {{ answer.author.username }}</a></div>
+        
+
+
+           <div class="answer-body">
+                {% if answer.disabled %}
+                <p><i>This diagnosis will not be displayed until it is marked / approved.</i></p>
+                {% endif %}
+                {% if moderate or not answer.disabled %}
+                    {% if answer.body_html %}
+                        {{ answer.body_html | safe }}
+                    {% else %}
+                        {{ answer.body }}
+                    {% endif %}
+                {% endif %}
+
+            </div>   
+              {% if moderate %}
+                <br>
+                {% if answer.disabled %}
+                <a class="btn btn-default btn-xs" href="{{ url_for('.moderate_enable', id=answer.id, page=page) }}">Enable</a>
+                {% else %}
+                <a class="btn btn-warning btn-xs" href="{{ url_for('.moderate_disable', id=answer.id, page=page) }}">Disable</a>
+                {% endif %}
+                <a class="btn btn-danger btn-xs" href="{{ url_for('.moderate_delete', id=answer.id, page=page) }}">Delete</a>
+              {% endif %}
+  
+        </div>
+   
+   
+      <div class="answer-content">
+        <div class="answer-body" >
+            {% if current_user.can(Permission.MODERATE) %}
+            <br>
+            <a class="btn btn-success btn-xs" href="{{ url_for('.rejoinder', id=answer.id, page=page) }}">Reply</a>
+            {% endif %}     
+            {% if not answer.disabled %}
+            <!--show the rejoinders (replies)-->
+            {% include '_rejoinders.html' %}
+            {% endif %}    
+        </div>  
+      </div>  
+
+     </li>     
+
+{% endif %}
+
+{% endfor %}
+   
+</ul>
+
+
+
+    
+        
