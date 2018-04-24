@@ -17,7 +17,7 @@
           <div class="answer-content">
             <div class="answer-date">{{ moment(answer.timestamp).fromNow() }}</div>
             <div class="case-title">Case {{ answer.case.case_number }}</div>
-            <div class="answer-author"><a href="{{ url_for('.user', username=answer.author.username) }}">Professor: {{ answer.author.username }}</a></div>
+            <div class="answer-author"><a href="{{ url_for('.user', username=answer.author.username) }}">{{ answer.author.username }}</a></div>
           <div class="case-title">Author{{ answer.author.id }}</div>
            <div class="answer-body">
                 {% if answer.disabled %}
@@ -65,7 +65,7 @@
           <div class="answer-content">
             <div class="answer-date">{{ moment(answer.timestamp).fromNow() }}</div>
             <div class="case-title">Case {{ answer.case.case_number }}</div>
-            <div class="answer-author"><a href="{{ url_for('.user', username=answer.author.username) }}">Student: {{ answer.author.username }}</a></div>
+            <div class="answer-author"><a href="{{ url_for('.user', username=answer.author.username) }}">{{ answer.author.username }}</a></div>
         
 
 
@@ -97,14 +97,15 @@
    
       <div class="answer-content">
         <div class="answer-body" >
+            {% if not answer.disabled %}
+            <!--show the rejoinders (replies)-->
+            {% include '_rejoinders.html' %}
+            {% endif %}   
             {% if current_user.can(Permission.MODERATE) %}
             <br>
             <a class="btn btn-success btn-xs" href="{{ url_for('.rejoinder', id=answer.id, page=page) }}">Reply</a>
             {% endif %}     
-            {% if not answer.disabled %}
-            <!--show the rejoinders (replies)-->
-            {% include '_rejoinders.html' %}
-            {% endif %}    
+ 
         </div>  
       </div>  
 

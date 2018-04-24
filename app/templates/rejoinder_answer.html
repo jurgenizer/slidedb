@@ -8,12 +8,13 @@
 <div class="page-header">
     <h1>Reply to diagnosis</h1>
 </div>
+
 <div>
-{% include '_answers_light.html' %}
-
-    {{ wtf.quick_form(form) }}
+    {% include '_answers_light.html' %}
+        <div class="answer-content">
+            {{ wtf.quick_form(form) }}
+        </div>
 </div>
-
 
 {% endblock %}
 

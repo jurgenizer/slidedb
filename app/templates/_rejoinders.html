@@ -1,8 +1,6 @@
 <ul class="answers">
  {% for rejoinder in answer.rejoinders %}
 
-
-
     <li class="answer" style="background-color: #bfe6f2;">
         
          <div class="answer-thumbnail">
@@ -13,7 +11,7 @@
  
          <div class="answer-content">
          <div class="answer-date">{{ moment(rejoinder.timestamp).fromNow() }}</div>
-         <div class="answer-author"><a href="{{ url_for('.user', username=rejoinder.author.username) }}">Professor: {{ rejoinder.author.username }}</a></div>
+         <div class="answer-author"><a href="{{ url_for('.user', username=rejoinder.author.username) }}">{{ rejoinder.author.username }}</a></div>
          
          <!--get the reply to the answer, the rejoinder-->
          <div class="answer-body">
@@ -25,15 +23,22 @@
                         {% endif %}
       
             </div>   
-            
-             {% if moderate %}
+
+            {% if moderate %}
                 <br>
-        <!--wtf-->
+                 <!--wtf-->
                 <a class="btn btn-danger btn-xs" href="{{ url_for('.moderate_deleter', id=rejoinder.id, page=page) }}">Delete</a>
-              {% endif %}
+            {% endif %}
 
         </div>
     </li>
+    
  {% endfor %}
-  
+    
+    <!--allow the correct user to reply-->
+    {% if current_user == answer.author %}
+        <br>
+        <a class="btn btn-success btn-xs" href="{{ url_for('.rejoinder', id=answer.id, page=page) }}">Reply</a>
+    {% endif %}    
+    
 </ul>

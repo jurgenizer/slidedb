@@ -308,7 +308,7 @@ def moderate_delete(id):
 @login_required
 @permission_required(Permission.MODERATE)
 def moderate_deleter(id):
-    Answer = Answer.query.get_or_404(id)
+    #Answer = Answer.query.get_or_404(id)
     rejoinder = Rejoinder.query.get_or_404(id)
     db.session.delete(rejoinder) 
     db.session.commit()

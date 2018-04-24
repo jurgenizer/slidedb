@@ -17,7 +17,7 @@
           <div class="answer-content">
             <div class="answer-date">{{ moment(answer.timestamp).fromNow() }}</div>
             <div class="Case-title">Case {{ answer.case.case_number }}</div>
-            <div class="answer-author"><a href="{{ url_for('.user', username=answer.author.username) }}">Professor: {{ answer.author.username }}</a></div>
+            <div class="answer-author"><a href="{{ url_for('.user', username=answer.author.username) }}">{{ answer.author.username }}</a></div>
     
 
            <div class="answer-body">
@@ -67,7 +67,7 @@
           <div class="answer-content">
             <div class="answer-date">{{ moment(answer.timestamp).fromNow() }}</div>
             <div class="Case-title">Case {{ answer.case.case_number }}</div>
-            <div class="answer-author"><a href="{{ url_for('.user', username=answer.author.username) }}">Student: {{ answer.author.username }}</a></div>
+            <div class="answer-author"><a href="{{ url_for('.user', username=answer.author.username) }}">{{ answer.author.username }}</a></div>
          
            <div class="answer-body">
                 {% if answer.disabled %}
