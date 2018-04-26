@@ -22,7 +22,9 @@
 {% endblock %}
 
 {% block navbar %}
-<div class="navbar navbar-default" style="background-color: #e3f2fd;" role="navigation">
+
+
+<div class="navbar navbar-default role="navigation"  style="min-height: 58px; padding-top: 5px; padding-bottom: 4px;">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -31,7 +33,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ url_for('main.index') }}" title="UCT PathSlides - Pathology Slide Database" > <img src="{{ url_for('static', filename='pathslidedb_logo.png')}}" style="margin-top: -11px;" width="42px" height="42px"> </a>
+            <a class="navbar-brand" href="{{ url_for('main.index') }}" title="UCT PathSlides - Pathology Slide Database" > <img src="{{ url_for('static', filename='pathslides_logo.png')}}" style="margin-top: -18px;" width="153px" height="54px"> </a>
            <!--<a class="navbar-brand" href="{{ url_for('main.index') }}">UCT PathSlides</a>-->
         </div>
         <div class="navbar-collapse collapse">

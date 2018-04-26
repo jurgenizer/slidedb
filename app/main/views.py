@@ -235,9 +235,17 @@ def rejoinder(id):
         flash('Reply submitted.')
         
         #email functionality added by jurgen
-        answer_author_email = answer.author.email
-        send_email(answer_author_email, 'A reply from UCT PathSlides',
+        if current_user == answer.author and \
+            not current_user.can(Permission.MODERATE):
+            send_email(current_app.config['SLIDEDB_PROF'], 'A reply from UCT PathSlides',
                    '/mail/rejoinder', answer=answer, form=form, user=current_user._get_current_object())
+            
+            
+        if current_user.can(Permission.MODERATE):
+            answer_author_email = answer.author.email
+            send_email(answer_author_email, 'A reply from UCT PathSlides',
+                   '/mail/rejoinder', answer=answer, form=form, user=current_user._get_current_object())
+
             
         flash('Your reply has been emailed.')
         #email functionality added by jurgen
