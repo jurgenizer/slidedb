@@ -23,9 +23,6 @@ def after_request(response):
     return response
 
 
-
-
-
 @main.route('/shutdown')
 def server_shutdown():
     if not current_app.testing:
