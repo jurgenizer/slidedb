@@ -25,6 +25,9 @@ pip-log.txt
 # Logs
 *.log
 
+# Temp directory
+tmp
+
 # Unit test / coverage reports
 .coverage
 .tox
