@@ -28,6 +28,10 @@ pip-log.txt
 # Temp directory
 tmp
 
+# Migrations directory
+migrations
+
+
 # Unit test / coverage reports
 .coverage
 .tox
