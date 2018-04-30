@@ -86,5 +86,5 @@ config = {
     'production': ProductionConfig,
     'unix': UnixConfig,
 
-    'default': DevelopmentConfig
+    'default': UnixConfig
 }
