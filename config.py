@@ -11,7 +11,7 @@ class Config:
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     SLIDEDB_MAIL_SUBJECT_PREFIX = '[UCT PathSlides]'
-    SLIDEDB_MAIL_SENDER = 'UCT PathSlides Admin <somebody@example.com>'
+    SLIDEDB_MAIL_SENDER = 'UCT PathSlides Admin <jurgen.geitner@uct.ac.za>'
     SLIDEDB_ADMIN = os.environ.get('SLIDEDB_ADMIN')
     SLIDEDB_PROF = os.environ.get('SLIDEDB_PROF')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
@@ -86,5 +86,5 @@ config = {
     'production': ProductionConfig,
     'unix': UnixConfig,
 
-    'default': UnixConfig
+    'default': DevelopmentConfig
 }
