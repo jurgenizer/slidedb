@@ -51,7 +51,7 @@ def logout():
 
 
 @auth.route('/register', methods=['GET', 'POST'])
-# Adding next line to hide registration form
+# Adding next line to hide registration form from public
 @login_required
 def register():
     form = RegistrationForm()
@@ -64,7 +64,7 @@ def register():
         token = user.generate_confirmation_token()
         send_email(user.email, 'Confirm Your Account',
                    'auth/email/confirm', user=user, token=token)
-        flash('A confirmation email has been sent to you by email.')
+        flash('A confirmation email has been sent by email.')
         return redirect(url_for('auth.login'))
     return render_template('auth/register.html', form=form)
 

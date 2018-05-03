@@ -151,8 +151,10 @@ def case(id):
         db.session.commit()
         flash('Your diagnosis has been added to the database.') 
         
-        #email functionality added by jurgen
+        #email functionality added by jurgen, email prof & admin
         send_email(current_app.config['SLIDEDB_PROF'], 'A student diagnosis from UCT PathSlides',
+                   '/mail/answer', case=case, form=form, user=current_user._get_current_object())
+        send_email(current_app.config['SLIDEDB_ADMIN'], 'A student diagnosis from UCT PathSlides',
                    '/mail/answer', case=case, form=form, user=current_user._get_current_object())
             
         flash('Your diagnosis has been emailed for comment.')

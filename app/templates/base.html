@@ -38,8 +38,8 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="{{ url_for('main.index') }}">Slide Index</a></li>
                 {% if current_user.is_authenticated %}
+                <li><a href="{{ url_for('main.index') }}">Case Index</a></li>
                 <li><a href="{{ url_for('main.user', username=current_user.username) }}">Profile</a></li>
                 {% endif %}
             </ul>

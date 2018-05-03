@@ -95,6 +95,10 @@ class User(UserMixin, db.Model):
         if self.role is None:
             if self.email == current_app.config['SLIDEDB_ADMIN']:
                 self.role = Role.query.filter_by(name='Administrator').first()
+            # let's add the Prof as a moderator
+            if self.email == current_app.config['SLIDEDB_PROF']:
+                self.role = Role.query.filter_by(name='Moderator').first()
+            # finished adding prof
             if self.role is None:
                 self.role = Role.query.filter_by(default=True).first()
         if self.email is not None and self.avatar_hash is None:
