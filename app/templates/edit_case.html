@@ -1,16 +1,21 @@
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
+{% import "_macros.html" as macros %}
 
 {% block title %}UCT PathSlides - Edit case{% endblock %}
 
 {% block page_content %}
-{% include '_cases.html' %}
 <div class="page-header">
     <h1>Edit case</h1>
 </div>
 <div>
-    {{ wtf.quick_form(form) }}
+  {% if current_user.can(Permission.ADMIN) %}
+        {{ wtf.quick_form(form) }}
+  {% endif %}
+ 
 </div>
+{% include '_cases.html' %}
+
 {% endblock %}
 
 {% block scripts %}

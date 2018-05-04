@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
+{% import "_macros.html" as macros %}
 
 {% block title %}UCT PathSlides - Delete case{% endblock %}
 
@@ -8,8 +9,12 @@
     <h1>Delete case</h1>
 </div>
 <div>
-{{ wtf.quick_form(form) }} 
+    {% if current_user.can(Permission.ADMIN) %}
+        {{ wtf.quick_form(form) }} 
+    {% endif %}
 </div>
+{% include '_cases.html' %}
+
 {% endblock %}
 
 {% block scripts %}
