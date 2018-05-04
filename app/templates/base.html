@@ -33,7 +33,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ url_for('main.index') }}" title="UCT PathSlides - Pathology Slide Database" > <img src="{{ url_for('static', filename='pathslides_logo.png')}}" style="margin-top: -18px;" width="153px" height="54px"> </a>
+            <a class="navbar-brand" href="{{ url_for('main.index') }}" title="UCT PathSlides - Pathology Slide Database" > 
+            <!--Adding multi-res images for retina displays etc. -->
+            <img srcset="{{ url_for('static', filename='pathslides_logo_153w.png')}}, {{ url_for('static', filename='pathslides_logo_306w.png' '2x')}} , {{ url_for('static', filename='pathslides_logo_459w.png' '3x')}} " 
+            src="{{ url_for('static', filename='pathslides_logo_153w.png')}}" style="margin-top: -18px;" width="153px" height="54px"> </a>
            <!--<a class="navbar-brand" href="{{ url_for('main.index') }}">UCT PathSlides</a>-->
         </div>
         <div class="navbar-collapse collapse">

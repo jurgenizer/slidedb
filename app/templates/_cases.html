@@ -26,7 +26,7 @@
         <div class="case-content">
             <div class="case-date">{{ moment(case.timestamp).fromNow() }}</div>
             <!--added by me so each case (question) has a title)-->
-            <div class="case-title">Question {{ case.question_number }}</div>
+            <div class="case-title">Case {{ case.case_number }}</div>
             <div class="case-author"><a href="{{ url_for('.user', username=case.author.username) }}">Author: {{ case.author.username }}</a></div>
             
                
