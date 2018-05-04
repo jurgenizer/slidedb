@@ -28,9 +28,6 @@
             <!--added by me so each case (question) has a title)-->
             <div class="case-title">Case {{ case.case_number }}</div>
             <div class="case-author"><a href="{{ url_for('.user', username=case.author.username) }}">Author: {{ case.author.username }}</a></div>
-            
-               
-            
             <div class="case-body">
                 {% if case.body_html %}
                     {{ case.body_html | safe }}
@@ -41,7 +38,7 @@
    
             <!--aded to display leaflet slide -->
             
-            <div id="map" style="width: 100%; height: 400px;"></div>
+            <div id="map" style="height: 100%; width: 100%;">
             
             <script type="text/javascript">
             //Adapted from NYU School of Medicine Virtual Microscopy, thank you!
@@ -97,7 +94,7 @@
             
             </script>  
             
-                        
+            </div>            
 
             
             <div class="case-footer">

@@ -37,10 +37,9 @@
                     {{ case.body }}
                 {% endif %}
             </div>
-   
             <!--aded to display leaflet slide -->
             
-            <div id="map" style="width: 100%; height: 400px;"></div>
+            <div id="map" style="height: 100%; width: 100%;">
             
             <script type="text/javascript">
             //Adapted from NYU School of Medicine Virtual Microscopy, thank you!
@@ -64,9 +63,7 @@
 
             //window redraw resize
             function handleResize() {
-                //document.getElementById('map').style.height = (height = $(window).height() - $("#map").position().top) + 'px'; // divide by 1.2 below
-                document.getElementById('map').style.height = (height = $(window).height()/1.2 - $("#map").position().top) + 'px';
-            }
+                document.getElementById('map').style.height = (height = $(window).height() - $("#map").position().top) + 'px'; }
 
             //Initialize the Leaflet Map Canvas
             function init() {
@@ -98,7 +95,9 @@
             
             </script>  
             
-                        
+            </div>
+        
+   
 
             
             <div class="case-footer">
