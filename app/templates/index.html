@@ -9,8 +9,8 @@
     <h1>Hello, {% if current_user.is_authenticated %}{{ current_user.username }}{% else %}Stranger{% endif %}</h1>
 </div>
 
-<div class="container">   
-    <div class="row">
+<div class="container-fluid">   
+    <div class="row equal">
     {% include '_thumbnails.html' %}
     </div>
 </div>

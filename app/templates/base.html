@@ -18,6 +18,25 @@
 
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 
+<!--Janky style here because I can't modify Flask bootstrap 3 styles in styles.css -->
+<style>
+@media (min-width: 900px) {
+   .equal{  
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: -webkit-box;
+        display: flex;
+    }
+}
+
+.panel {
+    width: 100%;
+    height: 100%;
+}
+
+
+</style>
+
 
 {% endblock %}
 
