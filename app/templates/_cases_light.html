@@ -88,7 +88,7 @@
             }).addTo(map);
             
             //leaflet MiniMap plugin
-            var map2 = new L.TileLayer(slide_url_format, {minZoom: 0, maxZoom: 9, attribution: '' });
+            var map2 = new L.TileLayer(slide_url_format, {minZoom: 0, maxZoom: 10, attribution: '' });
             miniMap = new L.Control.MiniMap(map2, { toggleDisplay: true, position: 'topright'}).addTo(map);
 
             }  //end of init function            
