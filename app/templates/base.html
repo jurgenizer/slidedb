@@ -18,7 +18,7 @@
 
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 
-<!--Janky style here because I can't modify Flask bootstrap 3 styles in styles.css -->
+<!--Janky style here because I can't modify Flask bootstrap 3 styles in styles.css-->
 <style>
 @media (min-width: 768px) {
    .equal{  
@@ -26,7 +26,13 @@
         display: -webkit-flex;
         display: -webkit-box;
         display: flex;
+        flex-wrap: wrap;
     }
+    
+    .equal > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+}
 }
 
 .panel {

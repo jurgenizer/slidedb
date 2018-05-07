@@ -1,9 +1,8 @@
 {% for case in cases %}
-
     <div class="col-sm-4">
       <div class="panel panel-primary">
         <div class="panel-heading">Case {{ case.case_number }}</div>
-        <div class="panel-body"><img src="../static/{{case.slide_path}}/0/0/0.jpg" class="img-responsive" width="256" height="256" alt="slide {{ case.case_number }}"></div>
+        <div class="panel-body"><img src="../static/{{case.slide_path}}/0/0/0.jpg" class="img-responsive center-block" width="256" height="256" alt="slide {{ case.case_number }}"></div>
         <div class="panel-footer"> <p><a href="{{ url_for('.case', id=case.id) }}#answers" class="btn btn-primary" role="button">View</a></p>
             <div class="case-body">
                             {% if case.body_html %}
