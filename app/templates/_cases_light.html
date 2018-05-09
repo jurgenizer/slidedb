@@ -37,9 +37,11 @@
                     {{ case.body }}
                 {% endif %}
             </div>
+            
             <!--aded to display leaflet slide -->
             
-            <div id="map" style="height: 100%; width: 100%;">
+            <div id="map" style="height: 100%; width: 100%;"><div> 
+
             
             <script type="text/javascript">
             //Adapted from NYU School of Medicine Virtual Microscopy, thank you!
@@ -94,12 +96,9 @@
             }  //end of init function            
             
             </script>  
-            
             </div>
-        
-   
+            </div> 
 
-            
             <div class="case-footer">
                 {% if current_user == case.author %}
                 <a href="{{ url_for('.edit', id=case.id) }}">
@@ -120,18 +119,12 @@
                 <span class="btn btn-danger">Delete [Admin]</span>
                 </a>
                 {% endif %}
-                <!--Hide this for now
-                <a href="{{ url_for('.case', id=case.id) }}">
-                    <span class="btn btn-info">Permalink</span>
-                </a>-->
-                
-
                 
                <a href="{{ url_for('main.index') }}">
                     <span class="btn btn-success">Back to case index</span>
                 </a>
              </div>
-        </div>
+   
     </li>
     {% endfor %}
 </ul>
