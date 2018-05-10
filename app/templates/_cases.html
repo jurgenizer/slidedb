@@ -61,7 +61,7 @@
 
             //window redraw resize
             function handleResize() {
-            	document.getElementById('map').style.height = (height = $(window).height() - $("#map").position().top) + 'px';
+            	document.getElementById('map').style.height = (height = $(window).height() - $("#map").position().top) - 22 + 'px';
             }
 
             //Initialize the Leaflet Map Canvas
@@ -125,7 +125,7 @@
                 <a href="{{ url_for('.case', id=case.id) }}#answers">
                     <!--<span class="label label-primary">{{ case.answers.count() }} Answers</span> answer count out for later 
                     <span class="label label-primary">Add your diagnosis</span>-->
-                    <span class="btn btn-info">Add your diagnosis</span>
+                    <span class="btn btn-default">Add your diagnosis</span>
 
                 </a>
             </div>

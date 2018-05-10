@@ -65,7 +65,7 @@
 
             //window redraw resize
             function handleResize() {
-                document.getElementById('map').style.height = (height = $(window).height() - $("#map").position().top) + 'px'; }
+                document.getElementById('map').style.height = (height = $(window).height() - $("#map").position().top) - 22 + 'px'; }
 
             //Initialize the Leaflet Map Canvas
             function init() {
@@ -121,7 +121,7 @@
                 {% endif %}
                 
                <a href="{{ url_for('main.index') }}">
-                    <span class="btn btn-success">Back to case index</span>
+                    <span class="btn btn-primary">Back to case index</span>
                 </a>
              </div>
    
