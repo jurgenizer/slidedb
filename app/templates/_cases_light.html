@@ -65,7 +65,7 @@
 
             //window redraw resize
             function handleResize() {
-                document.getElementById('map').style.height = (height = $(window).height() - $("#map").position().top) - 22 + 'px'; }
+                document.getElementById('map').style.height = (height = $(window).height() - $("#map").position().top) - 44 + 'px'; }
 
             //Initialize the Leaflet Map Canvas
             function init() {
@@ -120,8 +120,13 @@
                 </a>
                 {% endif %}
                 
-               <a href="{{ url_for('main.index') }}">
+                <a href="{{ url_for('main.index') }}">
                     <span class="btn btn-primary">Back to case index</span>
+                </a>
+                <!--using an anchor tag to get user to submit a diagnosis-->
+                <a href="#diagnosis" class="btn btn-info">
+                      <span class="glyphicon glyphicon-menu-down"></span> 
+                      Add your diagnosis
                 </a>
              </div>
    
