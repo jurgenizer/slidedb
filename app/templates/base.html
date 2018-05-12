@@ -27,7 +27,7 @@
 <meta name="msapplication-TileColor" content="#ffc40d">
 <meta name="theme-color" content="#ffffff">
 
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles1.0.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 
 <!--Janky style here because I can't modify Flask bootstrap 3 styles in styles.css
 This is to make the thumbnails equal in height and work on Safari -->
@@ -46,13 +46,7 @@ This is to make the thumbnails equal in height and work on Safari -->
     display: flex;
     flex-direction: column;
     }
-    
-    .equal.container:before,
-    equal.container:after,
-    .equal.row:before,
-    .equal.row:after {
-        content: normal; // IE doesn't support `initial`
-        }
+
 }
 
 .panel {
