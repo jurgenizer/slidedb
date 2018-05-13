@@ -12,7 +12,6 @@ ul.cases {
     list-style-type: none;
     padding: 0px;
     margin: 2px 0px 0px 0px;
-    border-top: 1px solid #e0e0e0;
 }
 div.case-tabs ul.cases {
     margin: 0px;
@@ -61,7 +60,7 @@ ul.answers li.answer:nth-child(1) {
     border-top: 1px solid #abcfd2;
 }
 ul.answers li.answer:hover {
-    background-color: #bfe6f2;
+    background-color: #f0f0f0;
 }
 div.answer-date {
     float: right;
