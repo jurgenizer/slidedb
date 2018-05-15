@@ -72,11 +72,8 @@ This is to make the thumbnails equal in height and work on Safari -->
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="{{ url_for('main.index') }}" title="UCT PathSlides - Pathology Slide Database" > 
-          
-            <!--lets add a svg viewbox for IE -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="153" height="54" viewBox="0 -18 153 54">
             <img src="{{ url_for('static', filename='uctpathslides_logo.svg')}}" style="margin-top: -18px;" width="153px" height="54px" onerror="this.src=pathslides_logo.png; this.onerror=null;"> </a>
-            </svg>
+         
            <!--<a class="navbar-brand" href="{{ url_for('main.index') }}">UCT PathSlides</a>-->
         </div>
         <div class="navbar-collapse collapse">
