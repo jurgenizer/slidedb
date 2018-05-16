@@ -118,15 +118,13 @@ div.flask-pagedown-preview h3 {
  * [2] IE10+
  */
 /* 1 */
-.ie9 img[src$="uctpathslides_logo.svg"] {
-position: absolute;
-  width: 153px; 
+.ie9 img[src$=".svg"] {
+    width: 100%; 
 }
 /* 2 
 */
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-  img[src$="uctpathslides_logo.svg"] {
-  position: absolute;
-    width: 153px; 
+  img[src$=".svg"] {
+    width: 100%; 
   }
 }
