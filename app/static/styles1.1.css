@@ -119,12 +119,14 @@ div.flask-pagedown-preview h3 {
  */
 /* 1 */
 .ie9 img[src$=".svg"] {
+position: absolute;
   width: 100%; 
 }
 /* 2 
+*/
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   img[src$=".svg"] {
+  position: absolute;
     width: 100%; 
   }
 }
-*/
