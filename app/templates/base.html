@@ -28,7 +28,7 @@
 <meta name="msapplication-TileColor" content="#ffc40d">
 <meta name="theme-color" content="#ffffff">
 
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles1.1.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles1.2.css') }}">
 
 <!--Janky style here because I can't modify Flask bootstrap 3 styles in styles.css
 This is to make the thumbnails equal in height and work on Safari -->
@@ -73,7 +73,7 @@ This is to make the thumbnails equal in height and work on Safari -->
             </button>
             <a class="navbar-brand" href="{{ url_for('main.index') }}" title="UCT PathSlides - Pathology Slide Database" > 
             
-            <svg viewBox="0 0 153 54"  height="54"  version="1.1" baseProfile="full" style="margin-top: -18px;" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 153 54"  width="153" height="54" style="margin-top: -18px;" xmlns="http://www.w3.org/2000/svg">
             <image xlink:href="{{ url_for('static', filename='uctpathslides_logo.svg')}}" src="pathslides_logo.png" style="margin-top: -18px;" width="153px" height="54px" 
             </svg>
             
