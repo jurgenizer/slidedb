@@ -6,6 +6,10 @@
 {{ super() }}
 <!--For svg support in IE11 etc -->
 <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<!--reset the scale to 1-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118972747-1"></script>
 <script>
@@ -28,7 +32,9 @@
 <meta name="msapplication-TileColor" content="#ffc40d">
 <meta name="theme-color" content="#ffffff">
 
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles1.5.css') }}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles1.6.css') }}">
 
 <!--Janky style here because I can't modify Flask bootstrap 3 styles in styles.css
 This is to make the thumbnails equal in height and work on Safari -->

@@ -1,5 +1,7 @@
 Herewith a response to your diagnosis / comment for case {{answer.case.case_number}}
 {{form.body.data}}
+(To view the case please click on the following link: 
+{{ url_for('.case', id=answer.case.id, _external=True)}})
 Sincerely,
 {{ user.username }}
 Note: replies to this email address are not monitored.

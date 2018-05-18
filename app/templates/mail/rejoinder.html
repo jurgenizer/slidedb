@@ -1,4 +1,4 @@
-<p>Herewith a response to your diagnosis / comment for case {{answer.case.case_number}}</p>
+<p>Herewith a response to your diagnosis / comment for <a href="{{ url_for('.case', id=answer.case.id, _external=True)}}">case {{answer.case.case_number}}</a></p>
 <p><b>{{form.body.data}}</b></p>
 <p>Sincerely,</p>
 <p> {{ user.username }}</p>

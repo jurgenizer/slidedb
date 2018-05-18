@@ -54,10 +54,10 @@ ul.answers {
 ul.answers li.answer {
     margin-left: 52px;
     padding: 8px;
-    border-bottom: 1px solid #abcfd2;
+    border-bottom: 0px solid #abcfd2;
 }
 ul.answers li.answer:nth-child(1) {
-    border-top: 1px solid #abcfd2;
+    border-top: 0px solid #abcfd2;
 }
 ul.answers li.answer:hover {
     background-color: #f0f0f0;

@@ -102,7 +102,7 @@
             {% endif %}   
             {% if current_user.can(Permission.MODERATE) %}
             <br>
-            <a class="btn btn-success btn-xs" href="{{ url_for('.rejoinder', id=answer.id, page=page) }}">Reply</a>
+            <a class="btn btn-success btn-xs" href="{{ url_for('.rejoinder', id=answer.id, page=page) }}"><i class="material-icons">chat</i></a>
             {% endif %}     
  
         </div>  
@@ -115,6 +115,7 @@
 {% endfor %}
    
 </ul>
+
 
 
 
